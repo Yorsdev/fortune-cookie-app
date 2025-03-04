@@ -13,3 +13,77 @@
 *::after {
 	box-sizing: border-box;
 }
+.container {
+	margin: 0;
+  display: grid;
+  place-content: center;
+  min-height: 100dvh;
+  background-size: cover;
+  background-position: center;
+}
+
+.phrase-card {
+  background-image: url('../public/rectangle1.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 20px 20px 20px;
+  width: 450px;
+	height: 200px;
+}
+h1 {
+	background: linear-gradient(45deg, rgb(3, 11, 173),rgb(255, 0, 98));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+button {
+	width: 150px;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 8px;
+	padding: 10px 0;
+	font-size: 0.9rem;
+
+    background: white;
+    color: rgb(3, 11, 173);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+button:hover {
+	transform: scale(1.1);
+    box-shadow: 5px 5px 4px purple;
+}
+
+
+p {
+	text-align: center;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 20ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+p {
+    display: block;
+    white-space: nowrap;
+    width: 0;
+    max-width: max-content;
+    border-right: 2px solid;
+    animation: typing 2s infinite steps(15) alternate,
+		blink 0.3s infinite step-end alternate;
+    overflow: hidden;
+    quotes: none;
+}
+
