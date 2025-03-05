@@ -12,8 +12,14 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+  margin: 0;
+}
+::selection {
+  background-color: rgb(223, 88, 15);
+  color: rgb(41, 3, 166);
 }
 .container {
+
 	margin: 0;
   display: grid;
   place-content: center;
@@ -37,17 +43,17 @@ h1 {
 }
 
 button {
+  border: 2px solid #b5199b;
 	width: 150px;
 	text-align: center;
 	margin: 0 auto;
 	border-radius: 8px;
 	padding: 10px 0;
 	font-size: 0.9rem;
-
-    background: white;
-    color: rgb(3, 11, 173);
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  color: rgb(44, 44, 44);
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 button:hover {
@@ -73,6 +79,28 @@ p {
     50% {
         border-color: transparent;
     }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+}
+
+.animated-image {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: url('./assets/man-chinesse.png') no-repeat center center;
+  background-size: cover;
+  animation: slideOut 2s linear forwards;
 }
 
 p {

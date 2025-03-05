@@ -12,36 +12,36 @@ import { img1, img2, img3, img4 } from './assets';
 const images = [img1, img2, img3, img4];
 
 function App() {
-	{
-		/* variables con el estado inicial y posterior */
-	}
+
 	const [phrase, setPhrase] = useState(randomItem(phrases));
 	const [image, setImage] = useState(randomItem(images));
+	const [showAnimation, setShowAnimation] = useState(false);
 
-	// aqui se cambia el estado del componente
 	const changePhrases = () => {
-		setPhrase(randomItem(phrases));
-		setImage(randomItem(images));
+		setShowAnimation(false);
+	
+		setTimeout(() => {
+			setShowAnimation(true);
+	
+			setTimeout(() => {
+				setShowAnimation(false);
+				setPhrase(randomItem(phrases));
+				setImage(randomItem(images));
+			}, 1800);
+		}, 10); 
 	};
 
-	{
-		/*Se carga por defecto un background en estado inicial*/
-	}
 	return (
 		<div className="container" style={{ backgroundImage: `url('${image}')` }}>
 			<h1>Fortune cookie</h1>
 
-			{/* Lo que va a contener el cardComponent  */}
 			<PhraseCard phrase={phrase.phrase} author={phrase.author} />
 
-			{/* Con funcion manejadora y parametro children dentro del componente */}
 			<Button handlePhrase={changePhrases}>Get a new phrase</Button>
+			{showAnimation && <div className="animated-image"></div>}
+
 		</div>
 	);
 }
 
 export default App;
-
-{
-	/*CARLOS: Maquetar animaciones en el archivo index.css */
-}
